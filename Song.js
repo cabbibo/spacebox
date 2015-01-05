@@ -1,5 +1,8 @@
 
 function Song( params ){
+  
+  this.artist = params.artist;
+  this.title  = params.title;
 
   this.url =  'http://api.soundcloud.com/tracks/' +
               params.soundcloudID +
@@ -29,22 +32,30 @@ function Song( params ){
   scene.add( this.mesh );
   objectControls.add( this.mesh );
 
+
 }
 
 Song.prototype.play = function(){
 
   audio.src = this.url;
   source.mediaElement.play();
+  currentSong = this;
+  songInfo.innerHTML = this.artist + "  -  " +this.title 
 
 }
 
 Song.prototype.hoverOver = function(){
   console.log( 'HOVER OV');
+
+  songInfo.innerHTML = this.artist + "  -  " +this.title 
 }
 
 
 Song.prototype.hoverOut = function(){
   console.log( 'HOVER OV');
+
+  var cs = currentSong;
+  songInfo.innerHTML = cs.artist + "  -  " + cs.title; 
 }
 
 
