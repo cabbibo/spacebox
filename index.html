@@ -131,10 +131,9 @@
       var source = audioController.ctx.createMediaElementSource(audio);
       source.connect(audioController.gain);
     
-      var geo = new THREE.IcosahedronGeometry( .1 , 1 );
+      var geo = new THREE.IcosahedronGeometry( .13 , 1 );
 
-      <iframe width="100%" height="450" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/177345046&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"></iframe>
-
+      
       var songParams = [
 
           {
@@ -200,9 +199,14 @@
             uniforms: uniforms
           },
 
-
-
-
+          {
+            title: 'The Antidote ( feat. Nai Palm )',
+            artist: 'Taylor McFerrin',
+            soundcloudID: 143556987,
+            geometry: geo,
+            material: 'rainbow',
+            uniforms: uniforms
+          },
 
 
       ]
@@ -262,9 +266,10 @@
 
           var params = songParams[i];
 
-          var x = Math.cos( (i / songParams.length) * 2 * Math.PI );
-          var y = 1;
-          var z = Math.sin( (i / songParams.length) * 2 * Math.PI );
+          var a = ((i / songParams.length)+.055) * 2 * Math.PI 
+          var x = 1.1 * Math.cos( a );
+          var y = .4;
+          var z = 1.1 * Math.sin(a );
           params.position = new THREE.Vector3( x , y , z );
 
           console.log( params.position );
