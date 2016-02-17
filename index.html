@@ -515,16 +515,18 @@
 
         gem.update();
         composer.reset();
+
+        renderer.render( scene, camera);
     
-        composer.render( scene, camera );
+        //composer.render( scene, camera );
        // composer.pass( chromaticAbberationPass );
         //composer.pass( bloomPass );
       // composer.pass( zoomPass );
-        composer.pass( vignettePass );
+       // composer.pass( vignettePass );
        // composer.pass( FXAAPass );
         //composer.pass( noisePass );
 
-        composer.toScreen();
+        //composer.toScreen();
 
 
         requestAnimationFrame( animate );
